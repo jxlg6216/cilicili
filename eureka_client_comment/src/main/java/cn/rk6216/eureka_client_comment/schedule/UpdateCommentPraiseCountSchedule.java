@@ -12,6 +12,6 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @EnableScheduling
-public class updateCommentPraiseCountSchedule {
+public class UpdateCommentPraiseCountSchedule {
 
 }
