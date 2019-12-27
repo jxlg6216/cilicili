@@ -13,7 +13,7 @@ public class ControllerTest {
     private ServiceTest serviceTest;
 
     @RequestMapping("/du")
-    public void show(){
+    public void show() {
         System.out.println(serviceTest.show());
     }
 }

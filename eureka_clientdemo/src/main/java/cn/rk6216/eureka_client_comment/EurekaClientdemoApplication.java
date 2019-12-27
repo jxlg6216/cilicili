@@ -1,4 +1,4 @@
-package cn.rk6216.eureka_clientdemo;
+package cn.rk6216.eureka_client_comment;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-@MapperScan("cn.rk6216.eureka_clientdemo.dao")
+@MapperScan("cn.rk6216.eureka_client_comment.dao")
 public class EurekaClientdemoApplication {
 
     public static void main(String[] args) {

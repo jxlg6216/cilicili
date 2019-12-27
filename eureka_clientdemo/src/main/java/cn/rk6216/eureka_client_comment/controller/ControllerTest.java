@@ -1,6 +1,6 @@
-package cn.rk6216.eureka_clientdemo.controller;
+package cn.rk6216.eureka_client_comment.controller;
 
-import cn.rk6216.eureka_clientdemo.service.Configtest;
+import cn.rk6216.eureka_client_comment.service.Configtest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,8 +12,8 @@ public class ControllerTest {
     private Configtest configtest;
 
     @RequestMapping("/test")
-    public String feignTest(){
+    public String feignTest() {
         System.out.println("进入了clientdemo的控制层");
-        return  configtest.findsname();
+        return configtest.findsname();
     }
 }
