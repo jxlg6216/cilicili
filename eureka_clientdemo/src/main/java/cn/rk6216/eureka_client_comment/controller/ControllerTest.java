@@ -14,6 +14,7 @@ public class ControllerTest {
     @RequestMapping("/test")
     public String feignTest() {
         System.out.println("进入了clientdemo的控制层");
-        return configtest.findsname();
+        //return configtest.findsname();
+        return "hi~";
     }
 }
