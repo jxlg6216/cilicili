@@ -12,6 +12,7 @@ public class ControllerTest {
     @Resource
     private ServiceTest serviceTest;
 
+
     @RequestMapping("/du")
     public void show(){
         System.out.println(serviceTest.show());

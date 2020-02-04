@@ -53,5 +53,6 @@
         <module>entityandtools</module>
         <module>feign</module>
         <module>zuul_80</module>
+        <module>client_videoplay8088</module>
     </modules>
 </project>
