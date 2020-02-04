@@ -1,0 +1,46 @@
+#端口配置
+server:
+  port: 8088
+  servlet:
+    context-path: /video
+spring:
+  application:
+    name: client-videoplay
+  #数据库配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/cilicili?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  #Redis配置
+  redis:
+    database: 0
+    port: 6379
+    host: localhost
+    password: root
+    timeout: 5000ms
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+#eurake配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: videoplay
+#Mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: cn.rk6216.client_videoplay8088.dao
+#pagehelper分页插件配置
+pagehelper:
+  helperDialect: postgresql
+  reasonable: true
+  supportMethodsArguments: true
+
