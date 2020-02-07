@@ -1,19 +1,24 @@
-#ÕÒµ½×¢²áÖĞĞÄµÄµØÖ·
+#æ‰¾åˆ°æ³¨å†Œä¸­å¿ƒçš„åœ°å€
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8080/eureka/
-#µ±Ç°ÏîÄ¿×¼±¸²¿ÊğµÄ¶Ë¿Ú
+#å½“å‰é¡¹ç›®å‡†å¤‡éƒ¨ç½²çš„ç«¯å£
 server:
   port: 80
-#µ±Ç°ÏîÄ¿µÄ·şÎñÆ÷Ãû³Æ
+#å½“å‰é¡¹ç›®çš„æœåŠ¡å™¨åç§°
 spring:
   application:
     name: service-zuul
-#ÅäÖÃÍø¹ØÂ·ÓÉ
+#é…ç½®ç½‘å…³è·¯ç”±
 zuul:
   routes:
     api-a:
-      #/api-ribbon/**ÇëÇó×ª·¢µ½service-ribbon·şÎñÆ÷
+      #/api-ribbon/**è¯·æ±‚è½¬å‘åˆ°service-ribbonæœåŠ¡å™¨
       path: /test/**
       serviceId: euraka-clientdemo
+
+
+
+
+

@@ -50,9 +50,17 @@
     <modules>
         <module>eureka_server</module>
         <module>eureka_clientdemo</module>
+        <module>eureka_client_comment</module>
         <module>entityandtools</module>
         <module>feign</module>
-        <module>zuul_80</module>
         <module>client_videoplay8088</module>
+        <module>zuul_80</module>
+        <module>service_admin</module>
+        <module>eureka_client_comment</module>
+<!--<<<<<<< HEAD-->
+        <!--<module>client_videoplay8088</module>-->
+<!--=======-->
+        <!--<module>service_admin</module>-->
+<!--&gt;>>>>>> 79f0e69db577df6776f14d0a0299864b972ba910-->
     </modules>
 </project>

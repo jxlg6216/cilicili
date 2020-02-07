@@ -1,6 +1,6 @@
-package cn.rk6216.eureka_clientdemo.controller;
+package cn.rk6216.eureka_client_comment.controller;
 
-import cn.rk6216.eureka_clientdemo.service.Configtest;
+import cn.rk6216.eureka_client_comment.service.Configtest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,20 +1,29 @@
 server:
-  port: 8082
-
-#  servlet:
-#    context-path: /demo
+  port: 8086
+  servlet:
+    context-path: /comment
 
 spring:
   application:
-    name: euraka-clientdemo
+    name: euraka-client-comment
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/cilicili?characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: root
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-#  zipkin:
-#    base-url: http://localhost:9411
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: root
+    jedis:
+      pool:
+        min-idle: 0
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+    timeout: 5000ms
 
 #  cloud:
 #    config:
@@ -36,7 +45,15 @@ eureka:
       defaultZone: http://localhost:8080/eureka/
   instance:
     prefer-ip-address: true
-    instance-id: clientdemo
+    instance-id: clientcomment
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
-  type-aliases-package: cn.rk6216.eureka_clientdemo.dao
+  type-aliases-package: cn.rk6216.eureka_client_comment.dao
+
+logging:
+  level:
+    root: warn
+    cn.rk6216.eureka_client_comment.dao: trace
+
+
+

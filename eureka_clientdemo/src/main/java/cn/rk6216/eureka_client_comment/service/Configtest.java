@@ -1,6 +1,6 @@
-package cn.rk6216.eureka_clientdemo.service;
+package cn.rk6216.eureka_client_comment.service;
 
-import cn.rk6216.eureka_clientdemo.dao.Daotest;
+import cn.rk6216.eureka_client_comment.dao.Daotest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
