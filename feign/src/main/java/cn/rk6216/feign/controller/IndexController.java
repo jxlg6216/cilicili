@@ -5,15 +5,12 @@ import cn.rk6216.feign.service.IndexService;
 import com.github.pagehelper.PageInfo;
 import feign.Param;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
-@Controller
+@RestController
 @CrossOrigin
 public class IndexController {
     @Resource
@@ -22,61 +19,57 @@ public class IndexController {
     @RequestMapping("/a")
     public String toPageTest(){return "index";}
 
-    @ResponseBody
     @RequestMapping("/main")//登录首页查找最热视频列表
     public PageInfo<VideoInformation> findMain(HttpSession session,
                            @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                            @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize){
         PageInfo<VideoInformation> result=indexService.findAllVideo(pageNo,pageSize);
-        session.setAttribute("indexVideo",result);
-//        return "某个thymeleaf页面:主页";
-//        return "index";
+//        session.setAttribute("indexVideo",result);
         return result;
     }
 
     @RequestMapping("/mainP")//登录首页查找点赞最多列表
-    public String findMainP(HttpSession session,
+    public PageInfo<VideoInformation> findMainP(HttpSession session,
                             @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                             @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize){
         PageInfo<VideoInformation> result=indexService.findAllVideoP(pageNo,pageSize);
-        session.setAttribute("ivideoP",result);
-        return "index";
+//        session.setAttribute("ivideoP",result);
+        return result;
     }
 
     @RequestMapping("/mainC")//登录首页查找点赞最多列表
-    public String findMainC(HttpSession session,
+    public PageInfo<VideoInformation> findMainC(HttpSession session,
                             @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                             @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize){
         PageInfo<VideoInformation> result=indexService.findAllVideoC(pageNo,pageSize);
-        session.setAttribute("ivideoC",result);
-        return "index";
+//        session.setAttribute("ivideoC",result);
+        return result;
     }
 
-    @ResponseBody
     @RequestMapping("/class")//点击某类返回该类综合排序,参数class对应某个类
-    public String findClass(@RequestParam("class") String string,HttpSession session,
+    public PageInfo<VideoInformation> findClass(@RequestParam("class") String string,HttpSession session,
                             @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                             @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize){
         PageInfo<VideoInformation> result=indexService.findClassVideo(string,pageNo,pageSize);
-        session.setAttribute("classVideo",result);
-        return "页面：类视频页面";
+//        session.setAttribute("classVideo",result);
+        return result;
     }
 
-    @RequestMapping("/classP/{class}")//点击点赞排序返回类的点赞列表,参数class对应某个类
-    public String findClassP(@Param("class") String string,HttpSession session,
+    @RequestMapping("/classP")//点击点赞排序返回类的点赞列表,参数class对应某个类
+    public PageInfo<VideoInformation> findClassP(@RequestParam("class") String string,HttpSession session,
                              @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                              @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize){
         PageInfo<VideoInformation> result=indexService.findClassPVideo(string,pageNo,pageSize);
-        session.setAttribute("classVideoP",result);
-        return "页面：类视频页面";
+//        session.setAttribute("classVideoP",result);
+        return result;
     }
 
-    @RequestMapping("/classC/{class}")//点击点赞排序返回类的点赞列表,参数class对应某个类
-    public String findClassC(@Param("class") String string,HttpSession session,
+    @RequestMapping("/classC")//点击点赞排序返回类的点赞列表,参数class对应某个类
+    public PageInfo<VideoInformation> findClassC(@RequestParam("class") String string,HttpSession session,
                              @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                              @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize){
         PageInfo<VideoInformation> result=indexService.findClassCVideo(string,pageNo,pageSize);
-        session.setAttribute("classVideoC",result);
-        return "页面：类视频页面";
+//        session.setAttribute("classVideoC",result);
+        return result;
     }
 }

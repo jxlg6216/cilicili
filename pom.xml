@@ -57,6 +57,7 @@
         <module>zuul_80</module>
         <module>service_admin</module>
         <module>eureka_client_comment</module>
+        <module>client_upload8090</module>
 <!--<<<<<<< HEAD-->
         <!--<module>client_videoplay8088</module>-->
 <!--=======-->

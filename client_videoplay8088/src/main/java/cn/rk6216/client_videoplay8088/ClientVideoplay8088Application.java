@@ -11,6 +11,7 @@ import java.util.Properties;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+//@EnableAdminServer??
 @EnableSwagger2
 public class ClientVideoplay8088Application {
 

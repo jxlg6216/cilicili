@@ -5,7 +5,11 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+/**
+ *  @author: YML
+ *  @Date: 2020/2/7 19:39
+ *  @Description:
+ */
 @FeignClient(value = "CLIENT-VIDEOPLAY")
 @RequestMapping("/video")
 public interface IndexService {
@@ -22,9 +26,9 @@ public interface IndexService {
     @RequestMapping("/class")//点击分类进入到某个类的视频列表
     PageInfo<VideoInformation> findClassVideo(@RequestParam("type") String type,@RequestParam("pageNo")int pageNo, @RequestParam("pageSize")int pageSize);
 
-    @RequestMapping("/classP/{type}")//点击按照点赞数返回类视频列表
+    @RequestMapping("/classP")//点击按照点赞数返回类视频列表
     PageInfo<VideoInformation> findClassPVideo(@RequestParam("type") String type,@RequestParam("pageNo")int pageNo, @RequestParam("pageSize")int pageSize);
 
-    @RequestMapping("/classC/{type}")//点击按照收藏返回类视频列表
+    @RequestMapping("/classC")//点击按照收藏返回类视频列表
     PageInfo<VideoInformation> findClassCVideo(@RequestParam("type") String type,@RequestParam("pageNo")int pageNo, @RequestParam("pageSize")int pageSize);
 }

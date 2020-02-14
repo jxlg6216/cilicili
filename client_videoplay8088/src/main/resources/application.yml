@@ -3,9 +3,23 @@ server:
   port: 8088
   servlet:
     context-path: /video
+#spring cloud admin配置?看清楚client和server端的配置
+#management:
+#  endpoint:
+#    health:
+#      show-details: always
+#  endpoints:
+#    web:
+#      exposure:
+#        include: ["health","info"]
 spring:
   application:
     name: client-videoplay
+  boot:
+    admin:
+      client:
+#        指定admin的server地址
+        url: http://localhost:9433
   #数据库配置
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/cilicili?characterEncoding=utf8&serverTimezone=Asia/Shanghai
@@ -43,4 +57,9 @@ pagehelper:
   helperDialect: postgresql
   reasonable: true
   supportMethodsArguments: true
-
+#开启监控所权限,admin功能
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
