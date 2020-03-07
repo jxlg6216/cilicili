@@ -25,6 +25,7 @@ public class DownloadVideoController {
     */
     @RequestMapping("/downloadVideo")
     public String downloadVideo(@RequestParam("videoId")String videoId,
+                                HttpServletRequest httpServletRequest,
                                 HttpServletResponse httpServletResponse){
         System.out.println("------------------------>>>>>>>>>>>>>>>>>>");
         //如果传来的参数为空则报错
