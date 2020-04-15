@@ -1,21 +1,22 @@
 server:
-  port: 8082
-
-#  servlet:
-#    context-path: /demo
+  port: 8100
+  servlet:
+    context-path: /user-register
 
 spring:
   application:
-    name: euraka-clientdemo
+    name: euraka-client-user-register
+  #配置admin服务地址
+  boot:
+    admin:
+      client:
+        url: http://localhost:9433
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/cilicili?characterEncoding=utf8&serverTimezone=Asia/Shanghai
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-#  zipkin:
-#    base-url: http://localhost:9411
-
 #  cloud:
 #    config:
 #      server:
@@ -30,13 +31,20 @@ spring:
 #      fail-fast: true
 #      label: master
 
+#开启admin的监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8080/eureka/
   instance:
     prefer-ip-address: true
-    instance-id: clientdemo
+    instance-id: user-register
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
-  type-aliases-package: cn.rk6216.eureka_client_user_update8102.dao
+  type-aliases-package: cn.rk6216.eureka_client_comment.dao
