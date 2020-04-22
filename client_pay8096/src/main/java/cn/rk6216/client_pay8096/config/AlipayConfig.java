@@ -6,7 +6,7 @@ import java.io.IOException;
 public class AlipayConfig {
 
         // 应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号,开发时使用沙箱提供的APPID，生产环境改成自己的APPID
-        public static String APP_ID = "2016102400753794";
+        public static String APP_ID = "";
 
         // 商户私钥，您的PKCS8格式RSA2私钥
         public static String APP_PRIVATE_KEY = "";
