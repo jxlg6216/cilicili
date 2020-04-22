@@ -59,6 +59,8 @@
         <module>eureka_client_comment</module>
         <module>client_upload8090</module>
         <module>client_download8092</module>
+        <module>client_pay8096</module>
+        <module>client_login8098</module>
 <!--<<<<<<< HEAD-->
         <!--<module>client_videoplay8088</module>-->
 <!--=======-->
