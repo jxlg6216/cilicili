@@ -23,7 +23,11 @@ public interface IUserInfoService {
      *  @author: Lizq
      *  @Date: 2020/4/15 21:37
      */
-    void updateSendCheck(String userEmail, String user_id);
+    // 通过 id
+    String updateSendCheckByUserId(String userId);
+
+    // 通过 邮箱
+    String updateSendCheckByUserEmail(String userEmail);
 
     /**
      *  忘记密码验证后 修改密码

@@ -39,10 +39,35 @@ public class UserInfoServiceImpl implements IUserInfoService {
     }
 
     @Override
-    public void updateSendCheck(String userEmail, String userId) {
-        String check = RandomId.getRandom16Id();
-        iMailService.sendSimpleMail(userEmail, "clicli 找回密码 验证码", "验证码：" + check + "，如果不是本人操作请无视。");
-        userInfoMapper.updateCheck(check,userId);
+    public String updateSendCheckByUserId(String userId) {
+        QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", userId);
+        UserInfo userInfo = userInfoMapper.selectOne(queryWrapper);
+        if(userInfo == null) {
+            return "账号不存在";
+        } else {
+            String userEmail = userInfo.getUserEmail();
+            String check = RandomId.getRandom16IdNoK();
+            iMailService.sendSimpleMail(userEmail, "clicli 找回密码 验证码", "验证码：" + check + "，如果不是本人操作请无视。");
+            userInfoMapper.updateCheck(check,userId);
+            return "请进行验证码的校验";
+        }
+    }
+
+    @Override
+    public String updateSendCheckByUserEmail(String userEmail) {
+        QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_email", userEmail);
+        UserInfo userInfo = userInfoMapper.selectOne(queryWrapper);
+        if(userInfo == null) {
+            return "该邮箱未绑定账号";
+        } else {
+            String userId = userInfo.getUserId();
+            String check = RandomId.getRandom16IdNoK();
+            iMailService.sendSimpleMail(userEmail, "clicli 找回密码 验证码", "验证码：" + check + "，如果不是本人操作请无视。");
+            userInfoMapper.updateCheck(check,userId);
+            return "请进行验证码的校验";
+        }
     }
 
     @Override

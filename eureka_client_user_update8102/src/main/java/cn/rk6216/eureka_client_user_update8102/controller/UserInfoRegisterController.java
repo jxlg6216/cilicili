@@ -4,7 +4,6 @@ import cn.rk6216.eureka_client_user_update8102.config.ParameterConfig;
 import cn.rk6216.eureka_client_user_update8102.service.IMailService;
 import cn.rk6216.eureka_client_user_update8102.service.IUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -28,9 +27,14 @@ public class UserInfoRegisterController {
         return iUserInfoService.updateUserInfo(ParameterConfig.updateMapConfig(map));
     }
 
-    @GetMapping("/send-forget-email")
-    public void sendForgetEmail(@RequestParam("userEmail") String userEmail,@RequestParam("userId") String userId) {
-        iUserInfoService.updateSendCheck(userEmail, userId);
+    @GetMapping("/send-forget-email-by-id")
+    public String sendForgetEmailById(@RequestParam("userId") String userId) {
+        return iUserInfoService.updateSendCheckByUserId(userId);
+    }
+
+    @GetMapping("/send-forget-email-by-email")
+    public String sendForgetEmailByEmail(@RequestParam("userEmail") String userEmail) {
+        return iUserInfoService.updateSendCheckByUserEmail(userEmail);
     }
 
     @PostMapping("/update-password")

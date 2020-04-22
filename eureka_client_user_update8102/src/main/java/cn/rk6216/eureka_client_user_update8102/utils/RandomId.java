@@ -36,4 +36,16 @@ public class RandomId {
         stringBuilder.append("}");
         return stringBuilder.toString();
     }
+
+    //生成随机的16位 样例：3A5-DjA-1E9-9EB3
+    public static String getRandom16IdNoK(){
+        char[] str={'A','B','C','1','D','E','2','F','G','3','H','4','I','5','J','K','6','L','M','N','7','O','P','8','Q','R','S','9','T','U','V','0','W','X','Y','Z'};
+        Random random = new Random();
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i=0;i<16;i++){
+            if(i==3 || i==7 || i==11)stringBuilder.append("-");
+            else stringBuilder.append(str[random.nextInt(35)]);
+        }
+        return stringBuilder.toString();
+    }
 }
