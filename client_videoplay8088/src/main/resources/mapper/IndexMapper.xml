@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.rk6216.client_videoplay8088.dao.IndexMapper">
+    <!--查询视频列表(无分类综合排序)-->
+    <select id="findByZonghe" parameterType="int"
+            resultType="cn.rk6216.client_videoplay8088.entity.VideoInformation">
+    select video_id,video_title,video_introduction,video_author,video_time
+      ,video_type,video_praise_count,video_collection_count
+    from video_information
+    where video_status = '1'
+    order by video_time DESC
+    </select>
+    <!--查询视频列表(无分类点赞排序)-->
+    <select id="findByPraise" parameterType="int"
+            resultType="cn.rk6216.client_videoplay8088.entity.VideoInformation">
+    select video_id,video_title,video_introduction,video_author,video_time
+      ,video_type,video_praise_count,video_collection_count
+    from video_information
+    where video_status = '1'
+    order by video_praise_count DESC
+    </select>
+    <!--查询视频列表(无分类收藏排序)-->
+    <select id="findByCollect"
+            resultType="cn.rk6216.client_videoplay8088.entity.VideoInformation">
+    select video_id,video_title,video_introduction,video_author,video_time
+      ,video_type,video_praise_count,video_collection_count
+    from video_information
+    where video_status = '1'
+    order by video_collection_count DESC
+    </select>
+    <!--查询视频列表(有分类综合排序)-->
+    <select id="findClassByZonghe" parameterType="java.lang.String"
+            resultType="cn.rk6216.client_videoplay8088.entity.VideoInformation">
+    select video_id,video_title,video_introduction,video_author,video_time
+      ,video_type,video_praise_count,video_collection_count
+    from video_information
+    where video_status = '1' and video_type=#{ty}
+    order by video_time DESC
+    </select>
+    <!--查询视频列表(有分类点赞排序)-->
+    <select id="findClassByPraise" parameterType="java.lang.String"
+            resultType="cn.rk6216.client_videoplay8088.entity.VideoInformation">
+    select video_id,video_title,video_introduction,video_author,video_time
+      ,video_type,video_praise_count,video_collection_count
+    from video_information
+    where video_status = '1' and video_type=#{ty}
+    order by video_praise_count DESC
+    </select>
+    <!--查询视频列表(有分类收藏排序)-->
+    <select id="findClassByCollect" parameterType="java.lang.String"
+            resultType="cn.rk6216.client_videoplay8088.entity.VideoInformation">
+    select video_id,video_title,video_introduction,video_author,video_time
+      ,video_type,video_praise_count,video_collection_count
+    from video_information
+    where video_status = '1' and video_type=#{ty}
+    order by video_collection_count DESC
+    </select>
+    <!--order by条件-->
+    <!--综合(1+video_time)*0.4+(video_praise_count+video_collection_count)*0.6-->
+    <!--收藏(1+video_time)*0.2+video_praise_count*0.3+video_collection_count*0.5-->
+    <!--点赞(1+video_time)*0.2+video_praise_count*0.5+video_collection_count*0.3-->
+</mapper>

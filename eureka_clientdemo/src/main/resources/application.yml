@@ -13,8 +13,8 @@ spring:
     password: root
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-  zipkin:
-    base-url: http://localhost:9411
+#  zipkin:
+#    base-url: http://localhost:9411
 
 #  cloud:
 #    config:
@@ -39,4 +39,4 @@ eureka:
     instance-id: clientdemo
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
-  type-aliases-package: cn.rk6216.eureka_client_comment.dao
+  type-aliases-package: cn.rk6216.eureka_client_user_update8102.dao

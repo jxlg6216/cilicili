@@ -1,0 +1,61 @@
+server:
+  port: 8102
+  servlet:
+    context-path: /user-info-update
+
+spring:
+  application:
+    name: euraka-client-user-register
+  #配置admin服务地址
+  boot:
+    admin:
+      client:
+        url: http://localhost:9433
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/cilicili?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  #配置邮箱
+  mail:
+    host: smtp.qq.com #发送邮件服务器
+    username: 1437217811@qq.com #发送邮件的邮箱地址
+    password:  jxquckjkbsgbhabj #客户端授权码，不是邮箱密码，这个在qq邮箱设置里面自动生成的
+    properties.mail.smtp.port: 465 #端口号465或587
+    from: 1437217811@qq.com # 发送邮件的地址，和上面username一致
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    properties.mail.smtp.ssl.enable: true
+    default-encoding: utf-8
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/jxlg6216/config
+#          search-paths: clientdemo
+#      name: cilicili-clientdemo-config
+#      profile: pro
+#      discovery:
+#        service-id: cilicili-clientdemo-config
+#        enabled: true
+#      fail-fast: true
+#      label: master
+
+#开启admin的监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: user-register
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: cn.rk6216.eureka_client_comment.dao

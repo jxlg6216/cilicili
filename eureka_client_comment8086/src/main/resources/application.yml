@@ -1,0 +1,72 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /comment
+
+spring:
+  application:
+    name: euraka-client-comment8086
+  #配置admin服务地址
+  boot:
+    admin:
+      client:
+        url: http://localhost:9433
+  #数据源
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/cilicili?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: root
+    jedis:
+      pool:
+        min-idle: 0
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+    timeout: 5000ms
+
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/jxlg6216/config
+#          search-paths: clientdemo
+#      name: cilicili-clientdemo-config
+#      profile: pro
+#      discovery:
+#        service-id: cilicili-clientdemo-config
+#        enabled: true
+#      fail-fast: true
+#      label: master
+
+#开启admin的监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: clientcomment
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: cn.rk6216.eureka_client_comment8086.dao
+
+logging:
+  level:
+    root: warn
+    cn.rk6216.eureka_client_comment.dao: trace
+
+
+

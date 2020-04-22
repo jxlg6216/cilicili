@@ -50,10 +50,22 @@
     <modules>
         <module>eureka_server</module>
         <module>eureka_clientdemo</module>
-        <module>eureka_client_comment</module>
         <module>entityandtools</module>
         <module>feign</module>
         <module>zuul_80</module>
         <module>service_admin</module>
+        <module>eureka_client_comment8086</module>
+        <module>client_videoplay8088</module>
+        <module>client_upload8090</module>
+        <module>client_download8092</module>
+        <module>client_pay8096</module>
+        <module>client_login8098</module>
+        <module>eureka_client_user_register8100</module>
+        <module>eureka_client_user_update8102</module>
+<!--<<<<<<< HEAD-->
+        <!--<module>client_videoplay8088</module>-->
+<!--=======-->
+        <!--<module>service_admin</module>-->
+<!--&gt;>>>>>> 79f0e69db577df6776f14d0a0299864b972ba910-->
     </modules>
 </project>
