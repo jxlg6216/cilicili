@@ -1,0 +1,17 @@
+#端口配置
+server:
+  servlet:
+    context-path: /download
+  port: 8092
+#eureka配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: download
+#服务配置
+spring:
+  application:
+    name: client-download

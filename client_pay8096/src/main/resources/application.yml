@@ -1,0 +1,39 @@
+#支付模块端口号
+server:
+  port: 8096
+  servlet:
+    context-path: /pay
+#服务配置
+spring:
+  application:
+    name: client-pay
+  #配置admin服务地址
+  boot:
+    admin:
+      client:
+        url: http://localhost:9433
+  #配置数据库及数据源
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/cilicili?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+#eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+  instance:
+    instance-id: pay
+    prefer-ip-address: true
+#开启admin的监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#Mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: cn.rk6216.client_pay8096.dao
