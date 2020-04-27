@@ -18,6 +18,7 @@ public class ParameterConfig {
         userInfo.setUserName(map.get("userName"));
         userInfo.setUserPassword(Md5.md5(Md5.yh(map.get("userPassword"))));
         userInfo.setUserEmail(map.get("userEmail"));
+        userInfo.setUserCheck(RandomId.getRandom16Id());
         // 初始化设置为男生，之后可以修改
         userInfo.setUserGender(1);
         userInfo.setUserNumber(500);

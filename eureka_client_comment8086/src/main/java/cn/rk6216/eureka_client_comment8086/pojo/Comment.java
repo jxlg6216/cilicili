@@ -43,4 +43,9 @@ public class Comment implements Serializable {
      * 表字段: plus_time
      */
     private String plusTime;
+    /**
+     *
+     * 表字段: comment_userid
+     */
+    private String commentUserid;
 }

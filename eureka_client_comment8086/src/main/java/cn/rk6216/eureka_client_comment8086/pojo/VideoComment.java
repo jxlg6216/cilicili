@@ -59,5 +59,10 @@ public class VideoComment implements Serializable {
     * 表字段: comment_praise_count
     */
     private Integer commentPraiseCount;
+    /**
+     *
+     * 表字段: comment_userid
+     */
+    private String commentUserid;
 
-    }
+}

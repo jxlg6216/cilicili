@@ -87,6 +87,7 @@ public class ParameterConfig {
         videoComment.setCommentValue((String) map.get("commentValue"));
         videoComment.setLocationTime((String) map.get("locationTime"));
         videoComment.setCommentUsername((String) map.get("commentUsername"));
+        videoComment.setCommentUserid((String)map.get("commentUserid"));
         videoComment.setCommentId(RandomId.getRandom20Id());
         videoComment.setCommentStatus("1");
         videoComment.setCommentTime(df.format(new Date()));
@@ -105,6 +106,7 @@ public class ParameterConfig {
         comment.setCommentId((String) map.get("commentId"));
         comment.setPlusValue((String) map.get("plusValue"));
         comment.setCommentUsername((String) map.get("commentUsername"));
+        comment.setCommentUserid((String)map.get("commentUserid"));
         comment.setPlusTime(simpleDateFormat.format(new Date()));
         comment.setCommentStatus("1");
         comment.setPlusId(RandomId.getRandom20Id());
