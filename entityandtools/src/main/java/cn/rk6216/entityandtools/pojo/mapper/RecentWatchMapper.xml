@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.RecentWatchMapper" >
+  <resultMap id="BaseResultMap" type="com.demo.RecentWatch" >
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="video_id_array" property="videoIdArray" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.demo.RecentWatch" >
+    insert into recent_watch (user_id, video_id_array)
+    values (#{userId,jdbcType=VARCHAR}, #{videoIdArray,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.RecentWatch" >
+    insert into recent_watch
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="videoIdArray != null" >
+        video_id_array,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoIdArray != null" >
+        #{videoIdArray,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -15,4 +15,8 @@ public interface IUserInfo {
     */
     String registerUserInfo(UserInfo userInfo);
 
+    /**
+     *  邮箱检查
+     */
+    Boolean testEmail(String email);
 }

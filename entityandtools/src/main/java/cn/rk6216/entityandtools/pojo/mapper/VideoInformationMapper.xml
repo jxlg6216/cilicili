@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.VideoInformationMapper" >
+  <resultMap id="BaseResultMap" type="com.demo.VideoInformation" >
+    <id column="video_id" property="videoId" jdbcType="VARCHAR" />
+    <result column="video_title" property="videoTitle" jdbcType="VARCHAR" />
+    <result column="video_introduction" property="videoIntroduction" jdbcType="VARCHAR" />
+    <result column="video_author" property="videoAuthor" jdbcType="VARCHAR" />
+    <result column="video_status" property="videoStatus" jdbcType="VARCHAR" />
+    <result column="video_time" property="videoTime" jdbcType="VARCHAR" />
+    <result column="video_type" property="videoType" jdbcType="VARCHAR" />
+    <result column="video_praise_count" property="videoPraiseCount" jdbcType="INTEGER" />
+    <result column="video_collection_count" property="videoCollectionCount" jdbcType="INTEGER" />
+    <result column="is_tv" property="isTv" jdbcType="BIT" />
+    <result column="tv_name" property="tvName" jdbcType="VARCHAR" />
+    <result column="tv_length" property="tvLength" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    video_id, video_title, video_introduction, video_author, video_status, video_time, 
+    video_type, video_praise_count, video_collection_count, is_tv, tv_name, tv_length, 
+    user_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from video_information
+    where video_id = #{videoId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from video_information
+    where video_id = #{videoId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.demo.VideoInformation" >
+    insert into video_information (video_id, video_title, video_introduction, 
+      video_author, video_status, video_time, 
+      video_type, video_praise_count, video_collection_count, 
+      is_tv, tv_name, tv_length, 
+      user_id)
+    values (#{videoId,jdbcType=VARCHAR}, #{videoTitle,jdbcType=VARCHAR}, #{videoIntroduction,jdbcType=VARCHAR}, 
+      #{videoAuthor,jdbcType=VARCHAR}, #{videoStatus,jdbcType=VARCHAR}, #{videoTime,jdbcType=VARCHAR}, 
+      #{videoType,jdbcType=VARCHAR}, #{videoPraiseCount,jdbcType=INTEGER}, #{videoCollectionCount,jdbcType=INTEGER}, 
+      #{isTv,jdbcType=BIT}, #{tvName,jdbcType=VARCHAR}, #{tvLength,jdbcType=INTEGER}, 
+      #{userId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.VideoInformation" >
+    insert into video_information
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        video_id,
+      </if>
+      <if test="videoTitle != null" >
+        video_title,
+      </if>
+      <if test="videoIntroduction != null" >
+        video_introduction,
+      </if>
+      <if test="videoAuthor != null" >
+        video_author,
+      </if>
+      <if test="videoStatus != null" >
+        video_status,
+      </if>
+      <if test="videoTime != null" >
+        video_time,
+      </if>
+      <if test="videoType != null" >
+        video_type,
+      </if>
+      <if test="videoPraiseCount != null" >
+        video_praise_count,
+      </if>
+      <if test="videoCollectionCount != null" >
+        video_collection_count,
+      </if>
+      <if test="isTv != null" >
+        is_tv,
+      </if>
+      <if test="tvName != null" >
+        tv_name,
+      </if>
+      <if test="tvLength != null" >
+        tv_length,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        #{videoId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoTitle != null" >
+        #{videoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="videoIntroduction != null" >
+        #{videoIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="videoAuthor != null" >
+        #{videoAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="videoStatus != null" >
+        #{videoStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="videoTime != null" >
+        #{videoTime,jdbcType=VARCHAR},
+      </if>
+      <if test="videoType != null" >
+        #{videoType,jdbcType=VARCHAR},
+      </if>
+      <if test="videoPraiseCount != null" >
+        #{videoPraiseCount,jdbcType=INTEGER},
+      </if>
+      <if test="videoCollectionCount != null" >
+        #{videoCollectionCount,jdbcType=INTEGER},
+      </if>
+      <if test="isTv != null" >
+        #{isTv,jdbcType=BIT},
+      </if>
+      <if test="tvName != null" >
+        #{tvName,jdbcType=VARCHAR},
+      </if>
+      <if test="tvLength != null" >
+        #{tvLength,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.VideoInformation" >
+    update video_information
+    <set >
+      <if test="videoTitle != null" >
+        video_title = #{videoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="videoIntroduction != null" >
+        video_introduction = #{videoIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="videoAuthor != null" >
+        video_author = #{videoAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="videoStatus != null" >
+        video_status = #{videoStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="videoTime != null" >
+        video_time = #{videoTime,jdbcType=VARCHAR},
+      </if>
+      <if test="videoType != null" >
+        video_type = #{videoType,jdbcType=VARCHAR},
+      </if>
+      <if test="videoPraiseCount != null" >
+        video_praise_count = #{videoPraiseCount,jdbcType=INTEGER},
+      </if>
+      <if test="videoCollectionCount != null" >
+        video_collection_count = #{videoCollectionCount,jdbcType=INTEGER},
+      </if>
+      <if test="isTv != null" >
+        is_tv = #{isTv,jdbcType=BIT},
+      </if>
+      <if test="tvName != null" >
+        tv_name = #{tvName,jdbcType=VARCHAR},
+      </if>
+      <if test="tvLength != null" >
+        tv_length = #{tvLength,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where video_id = #{videoId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.VideoInformation" >
+    update video_information
+    set video_title = #{videoTitle,jdbcType=VARCHAR},
+      video_introduction = #{videoIntroduction,jdbcType=VARCHAR},
+      video_author = #{videoAuthor,jdbcType=VARCHAR},
+      video_status = #{videoStatus,jdbcType=VARCHAR},
+      video_time = #{videoTime,jdbcType=VARCHAR},
+      video_type = #{videoType,jdbcType=VARCHAR},
+      video_praise_count = #{videoPraiseCount,jdbcType=INTEGER},
+      video_collection_count = #{videoCollectionCount,jdbcType=INTEGER},
+      is_tv = #{isTv,jdbcType=BIT},
+      tv_name = #{tvName,jdbcType=VARCHAR},
+      tv_length = #{tvLength,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR}
+    where video_id = #{videoId,jdbcType=VARCHAR}
+  </update>
+</mapper>

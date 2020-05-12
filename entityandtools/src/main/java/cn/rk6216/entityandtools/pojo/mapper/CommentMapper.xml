@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.CommentMapper" >
+  <resultMap id="BaseResultMap" type="com.demo.Comment" >
+    <result column="plus_id" property="plusId" jdbcType="VARCHAR" />
+    <result column="comment_id" property="commentId" jdbcType="VARCHAR" />
+    <result column="plus_value" property="plusValue" jdbcType="VARCHAR" />
+    <result column="comment_username" property="commentUsername" jdbcType="VARCHAR" />
+    <result column="comment_status" property="commentStatus" jdbcType="VARCHAR" />
+    <result column="plus_time" property="plusTime" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.demo.Comment" >
+    insert into comment (plus_id, comment_id, plus_value, 
+      comment_username, comment_status, plus_time, 
+      user_id)
+    values (#{plusId,jdbcType=VARCHAR}, #{commentId,jdbcType=VARCHAR}, #{plusValue,jdbcType=VARCHAR}, 
+      #{commentUsername,jdbcType=VARCHAR}, #{commentStatus,jdbcType=VARCHAR}, #{plusTime,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.Comment" >
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="plusId != null" >
+        plus_id,
+      </if>
+      <if test="commentId != null" >
+        comment_id,
+      </if>
+      <if test="plusValue != null" >
+        plus_value,
+      </if>
+      <if test="commentUsername != null" >
+        comment_username,
+      </if>
+      <if test="commentStatus != null" >
+        comment_status,
+      </if>
+      <if test="plusTime != null" >
+        plus_time,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="plusId != null" >
+        #{plusId,jdbcType=VARCHAR},
+      </if>
+      <if test="commentId != null" >
+        #{commentId,jdbcType=VARCHAR},
+      </if>
+      <if test="plusValue != null" >
+        #{plusValue,jdbcType=VARCHAR},
+      </if>
+      <if test="commentUsername != null" >
+        #{commentUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="commentStatus != null" >
+        #{commentStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="plusTime != null" >
+        #{plusTime,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

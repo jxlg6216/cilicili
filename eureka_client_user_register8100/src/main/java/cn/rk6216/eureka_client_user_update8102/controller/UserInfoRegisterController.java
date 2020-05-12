@@ -23,6 +23,10 @@ public class UserInfoRegisterController {
     @PostMapping("/register")
     public String userInfoRegister(@RequestBody Map<String, String> map) {
         UserInfo userInfo = ParameterConfig.registerMapConfig(map);
+        // 邮箱重复检查
+        if (iUserInfo.testEmail(userInfo.getUserEmail())) {
+            return "邮箱已经被注册";
+        }
         if(iUserInfo.registerUserInfo(userInfo).equals("success")) {
             return userInfo.getUserId();
         } else {

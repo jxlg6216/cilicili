@@ -27,4 +27,8 @@ class EurekaClientUserRegister8100Tests {
         System.out.println(iUserInfo.registerUserInfo(userInfo));
     }
 
+    @Test
+    void testEmail() {
+        System.out.println(iUserInfo.testEmail("14372171811@qq.com"));
+    }
 }

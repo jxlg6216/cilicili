@@ -4,28 +4,93 @@ import lombok.Data;
 
 @Data
 public class UserInfo {
-    //用户账号
+    /**
+    * 用户ID
+    * 表字段: user_id
+    */
     private String userId;
-    //用户密码
+
+    /**
+    * 用户名
+    * 表字段: user_name
+    */
+    private String userName;
+
+    /**
+    * 用户密码
+    * 表字段: user_password
+    */
     private String userPassword;
-    //用户邮箱
+
+    /**
+    * 邮箱
+    * 表字段: user_email
+    */
     private String userEmail;
-    //user_check           varchar(20) comment '验证码',
+
+    /**
+    * 验证码
+    * 表字段: user_check
+    */
     private String userCheck;
-    //   user_gender          int comment '性别',
+
+    /**
+    * 性别
+    * 表字段: user_gender
+    */
     private Integer userGender;
-    //   user_phone           varchar(20) comment '电话',
+
+    /**
+    * 电话
+    * 表字段: user_phone
+    */
     private String userPhone;
-    //   user_number          int comment '积分',
+
+    /**
+    * 积分
+    * 表字段: user_number
+    */
     private Integer userNumber;
-    //   is_login_today       boolean comment '当天登录情况',
-    private Integer isLoginToday;
-    //   user_mark            varchar(64) comment '签名',
+
+    /**
+    * 当天登录情况
+    * 表字段: is_login_today
+    */
+    private Boolean isLoginToday;
+
+    /**
+    * 签名
+    * 表字段: user_mark
+    */
     private String userMark;
-    //   user_birthday        varchar(64) comment '生日',
+
+    /**
+    * 生日
+    * 表字段: user_birthday
+    */
     private String userBirthday;
-    //   fans_number          int comment '粉丝量',
+
+    /**
+    * 粉丝量
+    * 表字段: fans_number
+    */
     private Integer fansNumber;
-    //   attention_number     int comment '关注量',
+
+    /**
+    * 关注量
+    * 表字段: attention_number
+    */
     private Integer attentionNumber;
+
+    /**
+    * 用户状态（0、被封禁，1、正常，2、被举报）
+    * 表字段: user_status
+    */
+    private Integer userStatus;
+
+    /**
+    * 
+    * 表字段: user_vip
+    */
+    private String userVip;
 }

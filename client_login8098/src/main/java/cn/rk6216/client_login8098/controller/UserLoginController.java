@@ -28,9 +28,8 @@ public class UserLoginController {
 //        PasswordCode pw=new PasswordCode();
 //        String password= pw.getPassword(userInfo.getUserPassword());
 //        String md5=pw.md5(password);
-        UserInfo userInfo1=new UserInfo();
         //这里如果账户密码正确则返回对象，否则返回null
-        userInfo1=ifindOne.findOneById(userInfo);
+        UserInfo userInfo1=ifindOne.findOneById(userInfo);
         return userInfo1;
     }
 

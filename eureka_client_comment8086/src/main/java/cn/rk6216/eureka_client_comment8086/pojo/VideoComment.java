@@ -2,10 +2,8 @@ package cn.rk6216.eureka_client_comment8086.pojo;
 
 import lombok.Data;
 
-import java.io.Serializable;
-
 @Data
-public class VideoComment implements Serializable {
+public class VideoComment {
     /**
     * 评论ID
     * 表字段: comment_id
@@ -59,10 +57,11 @@ public class VideoComment implements Serializable {
     * 表字段: comment_praise_count
     */
     private Integer commentPraiseCount;
+
     /**
-     *
-     * 表字段: comment_userid
-     */
-    private String commentUserid;
+    * 
+    * 表字段: user_id
+    */
+    private String userId;
 
 }

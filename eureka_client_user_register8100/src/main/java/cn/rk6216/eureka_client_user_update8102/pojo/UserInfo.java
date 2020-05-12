@@ -82,4 +82,21 @@ public class UserInfo {
     */
     private Integer attentionNumber;
 
+    /**
+    * 用户状态（0、被封禁，1、正常，2、被举报）
+    * 表字段: user_status
+    */
+    private Integer userStatus;
+
+    /**
+    * 
+    * 表字段: user_vip
+    */
+    private int vip;
+
+    /**
+     *  start_time
+     */
+    private String start_time;
+
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.NewsMapper" >
+  <resultMap id="BaseResultMap" type="com.demo.News" >
+    <result column="news_id" property="newsId" jdbcType="VARCHAR" />
+    <result column="video_id" property="videoId" jdbcType="VARCHAR" />
+    <result column="picture_id" property="pictureId" jdbcType="VARCHAR" />
+    <result column="news_status" property="newsStatus" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.demo.News" >
+    insert into news (news_id, video_id, picture_id, 
+      news_status, user_id, user_name
+      )
+    values (#{newsId,jdbcType=VARCHAR}, #{videoId,jdbcType=VARCHAR}, #{pictureId,jdbcType=VARCHAR}, 
+      #{newsStatus,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.News" >
+    insert into news
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="newsId != null" >
+        news_id,
+      </if>
+      <if test="videoId != null" >
+        video_id,
+      </if>
+      <if test="pictureId != null" >
+        picture_id,
+      </if>
+      <if test="newsStatus != null" >
+        news_status,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="newsId != null" >
+        #{newsId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoId != null" >
+        #{videoId,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureId != null" >
+        #{pictureId,jdbcType=VARCHAR},
+      </if>
+      <if test="newsStatus != null" >
+        #{newsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

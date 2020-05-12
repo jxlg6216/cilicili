@@ -34,8 +34,13 @@ public class FindOneImpl extends ServiceImpl<LoginMapper,UserInfo> implements If
         logininfo.setUserPassword(passwordmd5);
         UserInfo userInfo=loginMapper.findOneById(logininfo);
         System.out.println(userInfo);
-        if(userInfo.getIsLoginToday()==0){
-            addJiFenMapper.addJiFen(logininfo);
+        if (userInfo == null) {
+            // do nothing
+        } else {
+            if(userInfo.getIsLoginToday()){
+                addJiFenMapper.addJiFen(logininfo);
+                userInfo=loginMapper.findOneByEmail(logininfo);
+            }
         }
         return userInfo;
     }
@@ -57,8 +62,13 @@ public class FindOneImpl extends ServiceImpl<LoginMapper,UserInfo> implements If
         logininfo.setUserPassword(passwordmd5);
         UserInfo userInfo=loginMapper.findOneByEmail(logininfo);
         System.out.println(userInfo);
-        if(userInfo.getIsLoginToday()==0){
-            addJiFenMapper.addJiFen(logininfo);
+        if (userInfo == null) {
+
+        } else {
+            if(userInfo.getIsLoginToday()){
+                addJiFenMapper.addJiFen(logininfo);
+                userInfo=loginMapper.findOneByEmail(logininfo);
+            }
         }
         return userInfo;
     }

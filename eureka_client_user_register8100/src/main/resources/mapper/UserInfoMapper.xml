@@ -15,5 +15,7 @@
     <result column="user_birthday" property="userBirthday" jdbcType="VARCHAR" />
     <result column="fans_number" property="fansNumber" jdbcType="INTEGER" />
     <result column="attention_number" property="attentionNumber" jdbcType="INTEGER" />
+    <result column="user_status" property="userStatus" jdbcType="INTEGER" />
+    <result column="user_vip" property="userVip" jdbcType="VARCHAR" />
   </resultMap>
 </mapper>

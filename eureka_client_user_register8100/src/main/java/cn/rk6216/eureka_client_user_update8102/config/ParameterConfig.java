@@ -20,6 +20,14 @@ public class ParameterConfig {
         userInfo.setUserPassword(password);
         userInfo.setUserEmail(map.get("userEmail"));
         userInfo.setUserCheck(RandomId.getRandom16Id());
+        // 默认今天未登录
+        userInfo.setIsLoginToday(false);
+        // 关注数
+        userInfo.setAttentionNumber(0);
+        // 粉丝数
+        userInfo.setFansNumber(0);
+        // vip级别
+        userInfo.setVip(0);
         // 初始化设置为男生，之后可以修改
         userInfo.setUserGender(1);
         userInfo.setUserNumber(500);

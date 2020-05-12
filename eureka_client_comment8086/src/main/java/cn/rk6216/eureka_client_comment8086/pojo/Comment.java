@@ -1,17 +1,13 @@
 package cn.rk6216.eureka_client_comment8086.pojo;
 
-import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
-import java.io.Serializable;
-
 @Data
-public class Comment implements Serializable {
+public class Comment {
     /**
     * 子评论ID
     * 表字段: plus_id
     */
-    @TableId
     private String plusId;
 
     /**
@@ -39,13 +35,15 @@ public class Comment implements Serializable {
     private String commentStatus;
 
     /**
-     *
-     * 表字段: plus_time
-     */
+    * 
+    * 表字段: plus_time
+    */
     private String plusTime;
+
     /**
-     *
-     * 表字段: comment_userid
-     */
-    private String commentUserid;
+    * 
+    * 表字段: user_id
+    */
+    private String userId;
+
 }

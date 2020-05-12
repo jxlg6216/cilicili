@@ -26,4 +26,11 @@ public class UserInfoImpl implements IUserInfo {
         return userInfoMapper.insert(userInfo) == 1 ? "success" : "failed";
     }
 
+    @Override
+    public Boolean testEmail(String email) {
+        QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<UserInfo>();
+        queryWrapper.eq("user_email", email);
+        return userInfoMapper.selectOne(queryWrapper) == null ? false : true;
+    }
+
 }
