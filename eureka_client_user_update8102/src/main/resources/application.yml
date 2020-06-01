@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: euraka-client-user-register
+    name: euraka-user-info-update
   #配置admin服务地址
   boot:
     admin:
@@ -55,7 +55,7 @@ eureka:
       defaultZone: http://localhost:8080/eureka/
   instance:
     prefer-ip-address: true
-    instance-id: user-register
+    instance-id: user-info-update
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   type-aliases-package: cn.rk6216.eureka_client_comment.dao

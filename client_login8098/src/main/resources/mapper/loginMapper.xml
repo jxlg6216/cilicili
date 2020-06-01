@@ -5,7 +5,7 @@
     <!--查询用户,账户密码-->
     <select id="findOneById" parameterType="cn.rk6216.client_login8098.pojo.UserInfo"
             resultType="cn.rk6216.client_login8098.pojo.UserInfo">
-    select user_id,user_email,user_check,user_gender,user_phone,
+    select user_id,user_name,user_email,user_gender,user_phone,
       user_number,is_login_today,user_mark,user_birthday,fans_number,attention_number,user_status,start_time,vip
     from user_info
     where user_id = #{info.userId} and user_password = #{info.userPassword}
@@ -13,7 +13,7 @@
     <!--查询用户,邮箱密码-->
     <select id="findOneByEmail" parameterType="cn.rk6216.client_login8098.pojo.UserInfo"
             resultType="cn.rk6216.client_login8098.pojo.UserInfo">
-    select user_id,user_email,user_check,user_gender,user_phone,
+    select user_id,user_name,user_email,user_gender,user_phone,
       user_number,is_login_today,user_mark,user_birthday,fans_number,attention_number,user_status,start_time,vip
     from user_info
     where user_email = #{info1.userEmail} and user_password = #{info1.userPassword}

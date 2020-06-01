@@ -72,19 +72,39 @@ public class UserInfoServiceImpl implements IUserInfoService {
 
     @Override
     public String updatePassword(Map<String,String> map) {
-        UserInfo userInfo = new UserInfo();
-        userInfo.setUserId(map.get("userId"));
-        // 验证码是否正确
-        if ( map.get("userCheck").equals(userInfoMapper.getCheck(userInfo.getUserId()))) {
-            userInfo.setUserPassword(Md5.md5(Md5.yh(map.get("userPassword"))));
-            LambdaQueryWrapper<UserInfo> lambdaQueryWrapper = Wrappers.lambdaQuery();
-            lambdaQueryWrapper.eq(UserInfo::getUserId, userInfo.getUserId());
-            userInfoMapper.update(userInfo, lambdaQueryWrapper);
-            // 验证成功后，将验证码重置
-            userInfoMapper.updateCheck(RandomId.getRandom16Id(), userInfo.getUserId());
-            return "密码重置成功";
+        String userCheckInput = map.get("userCheck");
+        if (map.get("userId") == null) {
+            String userEmail = map.get("userEmail");
+            if(isChecked(userCheckInput, userInfoMapper.getCheckByEmail(userEmail))) {
+                String password = Md5.md5(Md5.yh(map.get("userPassword")));
+                System.out.println("------>" + password);
+                userInfoMapper.updatePasswordByEmail(userEmail, password );
+                // 验证成功后，将验证码重置
+                userInfoMapper.updateCheckByEmail(RandomId.getRandom16Id(), userEmail);
+                return "密码重置成功";
+            } else {
+                return "验证码错误";
+            }
         } else {
-            return "验证码错误";
+            String userId = map.get("userId");
+            // 验证码是否正确
+            if (isChecked(userCheckInput, userInfoMapper.getCheck(userId))) {
+                String password = Md5.md5(Md5.yh(map.get("userPassword")));
+                userInfoMapper.updatePassword(userId, password);
+                // 验证成功后，将验证码重置
+                userInfoMapper.updateCheck(RandomId.getRandom16Id(), userId);
+                return "密码重置成功";
+            } else {
+                return "验证码错误";
+            }
+        }
+    }
+
+    public Boolean isChecked(String userCheckInput, String userCheck) {
+        if (userCheckInput.equals(userCheck)) {
+            return true;
+        } else {
+            return false;
         }
     }
 

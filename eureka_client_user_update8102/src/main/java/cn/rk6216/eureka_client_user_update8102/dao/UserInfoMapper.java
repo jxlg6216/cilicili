@@ -11,7 +11,18 @@ public interface UserInfoMapper extends BaseMapper<UserInfo> {
     @Update("update user_info set user_check = #{check} where user_id = #{userId}")
     int updateCheck(@Param("check") String checked, @Param("userId") String userId);
 
+    @Update("update user_info set user_check = #{check} where user_email = #{userEmail}")
+    int updateCheckByEmail(@Param("check") String checked, @Param("userEmail") String userEmail);
+
     @Select("select user_check from user_info where user_id = #{userId}")
     String getCheck(@Param("userId")String userId);
 
+    @Select("select user_check from user_info where user_email = #{userEmail}")
+    String getCheckByEmail(@Param("userEmail")String userEmail);
+
+    @Update("update user_info set user_password = #{userPassword} where user_id = #{userId}")
+    int updatePassword(@Param("userId") String userId, @Param("userPassword") String userPassword);
+
+    @Update("update user_info set user_password = #{userPassword} where user_Email = #{userEmail}")
+    int updatePasswordByEmail(@Param("userEmail") String userEmail, @Param("userPassword") String userPassword);
 }

@@ -1,4 +1,4 @@
-package cn.rk6216.client_login8098.pojo;
+package cn.rk6216.feign.entity;
 
 import lombok.Data;
 

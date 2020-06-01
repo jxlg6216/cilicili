@@ -28,6 +28,8 @@ public class ParameterConfig {
         userInfo.setFansNumber(0);
         // vip级别
         userInfo.setVip(0);
+        // 账号状态为正常
+        userInfo.setUserStatus(1);
         // 初始化设置为男生，之后可以修改
         userInfo.setUserGender(1);
         userInfo.setUserNumber(500);
